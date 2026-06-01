@@ -7,6 +7,7 @@ EV3DEV-based robot project with LEGO EV3 large motors on output ports A and B, p
 - GitHub: https://github.com/tucanoneverdie1976/ev3robot
 - Local working directory: `D:\Work\ev3robot`
 - Main drive test script: `beep_drive.py`
+- Current working notes: `CURRENT_STATUS.md`
 
 ## EV3DEV Target
 

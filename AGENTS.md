@@ -2,6 +2,8 @@
 
 This repository contains EV3DEV robot code and CAD assets. Work carefully: changes may move real motors on physical hardware.
 
+Read `CURRENT_STATUS.md` first. It records the latest known-good EV3, RPi, YDLidar, Foxglove, and SLAM planning state.
+
 ## Project Locations
 
 - Local repo: `D:\Work\ev3robot`

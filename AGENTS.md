@@ -9,6 +9,8 @@ This repository contains EV3DEV robot code and CAD assets. Work carefully: chang
 - EV3DEV target: `192.168.68.60`
 - SSH user: `robot`
 - Remote script path: `/home/robot/beep_drive.py`
+- Raspberry Pi ROS 2 target: `192.168.68.57`
+- RPi SSH user: `ros2test`
 
 Do not commit passwords or secrets. If authentication is needed, ask the user or use a local-only secret file that is ignored by Git.
 
@@ -17,6 +19,8 @@ Do not commit passwords or secrets. If authentication is needed, ask the user or
 - Port A: EV3 large motor, drive motor
 - Port B: EV3 large motor, drive motor
 - A/B motor `max_speed` observed from EV3DEV: `1050`
+- YDLidar X4 is attached to the RPi as `/dev/ttyUSB0`.
+- Foxglove bridge uses WebSocket port `8765`.
 
 ## Current Script
 
@@ -34,6 +38,22 @@ Do not commit passwords or secrets. If authentication is needed, ask the user or
 - After every run, send `stop` to both motors.
 - For maximum-speed tests, keep the robot lifted or ensure clear open space.
 - If power drops or SSH times out during motion, reconnect and stop all motors before continuing.
+
+## RPi ROS 2 LiDAR State
+
+- Tracked files live under `rpi_ros2/`.
+- RPi runtime workspace: `/home/ros2test/ros2_ws`.
+- Working launch: `ros2 launch ydlidar_ros2_driver x4_foxglove.launch.py`.
+- Working Foxglove URL from the PC: `ws://192.168.68.57:8765`.
+- Verified topic: `/scan`.
+- Verified scan frame: `laser_frame`.
+- Do not commit ROS 2 `build/`, `install/`, or `log/` directories.
+
+Stop LiDAR/Foxglove processes on the RPi:
+
+```bash
+pkill -f "x4_foxglove|ydlidar_ros2_driver_node|foxglove_bridge"
+```
 
 ## Suggested Stop Command
 

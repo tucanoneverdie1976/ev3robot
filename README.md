@@ -20,6 +20,9 @@ EV3DEV-based robot project with LEGO EV3 large motors on output ports A and B, p
 - Output port A: EV3 large motor for drive
 - Output port B: EV3 large motor for drive
 - Observed EV3DEV `max_speed` for both motors: `1050`
+- Raspberry Pi ROS 2 host: `192.168.68.57`
+- YDLidar X4 serial device on RPi: `/dev/ttyUSB0`
+- Foxglove WebSocket URL: `ws://192.168.68.57:8765`
 
 ## Current Drive Test
 
@@ -35,6 +38,30 @@ Run on the EV3:
 
 ```bash
 python3 /home/robot/beep_drive.py
+```
+
+## RPi ROS 2 LiDAR Test
+
+The working YDLidar X4 and Foxglove setup is tracked under `rpi_ros2/`.
+
+Run on the Raspberry Pi:
+
+```bash
+source /opt/ros/humble/setup.bash
+source ~/ros2_ws/install/setup.bash
+ros2 launch ydlidar_ros2_driver x4_foxglove.launch.py
+```
+
+Connect Foxglove from the PC to:
+
+```text
+ws://192.168.68.57:8765
+```
+
+Expected topic:
+
+```text
+/scan
 ```
 
 ## Safety

@@ -1,0 +1,35 @@
+ydlidar_ros2_driver_node:
+  ros__parameters:
+    port: /dev/ttyUSB0
+    baudrate: 128000
+    frame_id: laser_frame
+
+    # === 모델 / 프로토콜 ===
+    lidar_type: 0            # Triangle Series
+    device_type: 0           # Serial
+    isSingleChannel: false   # ❗ 제조사 SW와 동일
+    intensity: false
+    intensity_bit: 0
+
+    # === 성능 파라미터 ===
+    sample_rate: 5           # 5.00 K/s
+    frequency: 5.0           # 5.0 Hz
+    abnormal_check_count: 4
+
+    # === 동작 옵션 ===
+    fixed_resolution: true
+    reversion: false
+    inverted: false
+    auto_reconnect: true
+
+    # ❗ 제조사 Enable DTR = ON
+    support_motor_dtr: true
+
+    # === 범위 ===
+    angle_min: -180.0
+    angle_max: 180.0
+    range_min: 0.12
+    range_max: 10.0
+
+    invalid_range_is_inf: false
+    debug: true
